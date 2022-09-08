@@ -1,0 +1,16 @@
+#gameBoardDiv{
+    border: 1px solid black;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+    align-items: center;
+}
+
+.gameSquare{
+    border: 1px solid black;
+    text-align:center;
+    padding: 2.7rem 0rem 2.7rem 0rem;
+}
