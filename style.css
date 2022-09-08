@@ -10,7 +10,10 @@
 }
 
 .gameSquare{
+    display: flex;
     border: 1px solid black;
-    text-align:center;
-    padding: 2.7rem 0rem 2.7rem 0rem;
+    align-items: center;
+    justify-content: center;
+    width: 6.55rem;
+    height: 6.55rem;
 }
