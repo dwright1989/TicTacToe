@@ -79,6 +79,12 @@ const TicTacToe = (() => {
                 player1.setTurn(true);
                 gameBoard.setPlayerTurn(player1.getcharacterSymbol());
 
+                // Add names to the board
+                let player1Div = document.getElementById("player1Name");
+                player1Div.innerHTML = player1.getname();
+                let player2Div = document.getElementById("player2Name");
+                player2Div.innerHTML = player2.getname();
+
                 // Add event listeners to each square
                 for(let i=0; i<9; i++){
                     let gameSquare = document.getElementById(i);

@@ -1,5 +1,19 @@
+:root{
+    --main-color: black;
+    --secondary-color: white;
+    --color-one: pink;
+    --color-two: green;
+    --color-three: yellow;
+}
+body{
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+
 #gameBoardDiv{
-    border: 1px solid black;
+    border: 1px solid var(--secondary-color);
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -11,9 +25,72 @@
 
 .gameSquare{
     display: flex;
-    border: 1px solid black;
+    border: 1px solid var(--secondary-color);
     align-items: center;
     justify-content: center;
     width: 6.55rem;
     height: 6.55rem;
+}
+
+#header{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr 2fr;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    margin-bottom: 6rem;
+    height: 12rem;
+    padding-bottom: 1rem;
+}
+
+#tictactoe{
+    grid-area: 1/1/1/3;
+    margin: auto;
+}
+
+#player1Status{
+    grid-area: 2/1/2/1;
+    
+}
+
+#player2Status{
+    grid-area: 2/2/2/2;
+}
+
+.playerstatus{
+    display: grid;
+    justify-self:center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.playerName{
+    grid-area: 1/1/2/3;
+}
+
+.symbol{
+    grid-area:2/1/3/3;
+    font-size: 2rem;
+}
+
+.score{
+    grid-area:3/1/4/2;
+}
+
+.playerScore{
+    grid-area:3/2/4/3;
+}
+
+.playerTurn{
+    color: var(--color-three);
+}
+
+.crosses{
+    color: var(--color-one);
+}
+
+.naughts{
+    color: var(--color-two);
 }
