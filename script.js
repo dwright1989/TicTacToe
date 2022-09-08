@@ -1,49 +1,70 @@
 const TicTacToe = (() => {
-    /*
-    This controls the actual game play
-    */
-    const gameController = (function(){
+         
+        const gameBoard = (function() {
+            'use strict';
+            let board = ["O", "X", "X", "X", "O","O","X","O","X"]; 
+            const updateBoard = (a, b) => a - b;
+            const resetBoard = (a, b) => a * b;
 
-        /*
-        The player factory (to create player objects from)
-        */
-        const playerFactory = (name) =>{
-            let score = 0;
+            function createBoard(){
+                for(let i=0; i<9; i++){
+                    let gameSquare = document.getElementById(i);
+                    gameSquare.innerHTML = board[i];
+                }
+            }
+
+            return {
+                createBoard: createBoard
+            };
             
+        })();
+
+        /*The player factory (to create player objects from)
+            */
+        const playerFactory = (name, XorO) =>{
+            let score = 0;
+            let characterSymbol = XorO;
+            let playerName = name; 
+            
+            return{
+                get name(){
+                    return playerName;
+                },
+                set name(name){
+                    playerName = name;
+                },
+                get characterSymbol(){
+                    return XorO;
+                },
+                set characterSymbol(XorO){
+                    characterSymbol = XorO;
+                }
+
+            }
 
         }
 
-        // Create two player objects (only two players for Tic Tac Toe)
-        //################ MANUALLY ADDED NAMES - TO BE REMOVED ################
-        let player1 = playerFactory("Aaron");
-        let player2 = playerFactory("Bob");
+        const gameController = (() => {
+                // Create two player objects (only two players for Tic Tac Toe)
+                //################ MANUALLY ADDED NAMES - TO BE REMOVED ################
+                let player1 = playerFactory("Aaron", "X");
+                let player2 = playerFactory("Bob", "O");
 
+                let turn = player1.characterSymbol;
 
-        /*
-        This controls what is displayed in the DOM
-        */
-        const displayController = (function(){
+                // Add event listeners to each square
+                for(let i=0; i<9; i++){
+                    let gameSquare = document.getElementById(i);
+                    gameSquare.addEventListener("click", function(i){
+                        gameBoard.addToBoard(i);
+                    });
+                }
 
-        });
-        
-        
-        let board = ["X","O","O","X","O","X","X","O","X"]; // Array that is used to populate the board (stores values of X and Os)
+                gameBoard.createBoard();
+            
+            
+        })();
 
-        populateBoard(board);
-       
-
-       /*
-       Function to populate the DOM
-       */
-       function populateBoard(board){
-            for(let i=0; i<9; i++){
-                let gameSquare = document.getElementById(i);
-                gameSquare.innerHTML = board[i];
-            }
-
-       }
-
-    })();
     
   })();
   
