@@ -17,6 +17,10 @@ const TicTacToe = (() => {
                 updateBoard();
             }
 
+            function getBoard(){
+                return board;
+            }
+
             function getPlayerTurn(){
                 return turn;
             }
@@ -28,7 +32,8 @@ const TicTacToe = (() => {
                 updateBoard: updateBoard,
                 addToBoard: addToBoard,
                 getPlayerTurn: getPlayerTurn,
-                setPlayerTurn: setPlayerTurn
+                setPlayerTurn: setPlayerTurn,
+                getBoard: getBoard
             };
             
         })();
@@ -73,16 +78,17 @@ const TicTacToe = (() => {
 
                 player1.setTurn(true);
                 gameBoard.setPlayerTurn(player1.getcharacterSymbol());
-                console.log("The game board current symbol is: " + gameBoard.getPlayerTurn());
 
                 // Add event listeners to each square
                 for(let i=0; i<9; i++){
                     let gameSquare = document.getElementById(i);
                     gameSquare.addEventListener("click", function(){
-                        console.log("i: " + i);
-                        gameBoard.addToBoard(i);
-                        changeTurn();
-                        console.log("The game board current symbol is: " + gameBoard.getPlayerTurn());
+                        // check to see if square is empty before adding
+                        let theBoard = gameBoard.getBoard();
+                        if(theBoard[i]=="" || theBoard[i]==null){
+                            gameBoard.addToBoard(i);
+                            changeTurn();
+                        }
                     });
                 }
 
@@ -91,19 +97,15 @@ const TicTacToe = (() => {
                         player2.setTurn(true);
                         player1.setTurn(false);
                         let player2Symbol = player2.getcharacterSymbol();
-                        console.log("player2Symbol " + player2Symbol);
                         gameBoard.setPlayerTurn(player2Symbol);
                     }else{
                         player2.setTurn(false);
                         player1.setTurn(true);
                         let player1Symbol = player1.getcharacterSymbol();
-                        console.log("player1Symbol " + player1Symbol);
                         gameBoard.setPlayerTurn(player1Symbol);
                     }
                 }
 
-                
-                //gameBoard.createBoard();
             
             
         })();
