@@ -9,6 +9,12 @@ const TicTacToe = (() => {
                 for(let i=0; i<9; i++){
                     let gameSquare = document.getElementById(i);
                     gameSquare.innerHTML = board[i];
+                    if(board[i]=="X"){
+                        gameSquare.classList.add("crosses");
+                    }
+                    if(board[i]=="O"){
+                        gameSquare.classList.add("naughts");
+                    }
                 }
             }
 
