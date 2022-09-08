@@ -104,12 +104,27 @@ const TicTacToe = (() => {
                         player1.setTurn(false);
                         let player2Symbol = player2.getcharacterSymbol();
                         gameBoard.setPlayerTurn(player2Symbol);
+
+                        // change class
+                        let player2NameDiv = document.getElementById("player2Name");
+                        player2NameDiv.classList.add("playerTurn");
+                        let player1NameDiv = document.getElementById("player1Name");
+                        player1NameDiv.classList.remove("playerTurn");
                     }else{
                         player2.setTurn(false);
                         player1.setTurn(true);
                         let player1Symbol = player1.getcharacterSymbol();
                         gameBoard.setPlayerTurn(player1Symbol);
+
+                        // change class
+                        let player1NameDiv = document.getElementById("player1Name");
+                        player1NameDiv.classList.add("playerTurn");
+                        let player2NameDiv = document.getElementById("player2Name");
+                        player2NameDiv.classList.remove("playerTurn");
                     }
+                    
+
+                    
                 }
 
             

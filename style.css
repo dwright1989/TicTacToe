@@ -1,9 +1,10 @@
 :root{
     --main-color: black;
     --secondary-color: white;
-    --color-one: pink;
-    --color-two: green;
-    --color-three: yellow;
+    --color-one: #FB33DB;
+    --color-two: #7FFF00;
+    --color-three: #FCF340;
+    --color-four: #0310EA;
 }
 body{
     background-color: var(--main-color);
@@ -40,7 +41,7 @@ body{
     color: var(--main-color);
     margin-bottom: 6rem;
     height: 12rem;
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
 }
 
 #tictactoe{
@@ -58,16 +59,30 @@ body{
 }
 
 .playerstatus{
+    background-color: var(--main-color);
+    border-radius: 150px;
+    
+    color: white;
     display: grid;
     justify-self:center;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+#player1Status{
+    border: 5px double var(--color-one);
+}
+
+#player2Status{
+    border: 5px double var(--color-two);
 }
 
 .playerName{
     grid-area: 1/1/2/3;
+    font-size: 1.5rem;
 }
 
 .symbol{
