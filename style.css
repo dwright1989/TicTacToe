@@ -60,9 +60,7 @@ body{
 }
 
 .playerstatus{
-    background-color: var(--main-color);
-    border-radius: 150px;
-    
+    background-color: var(--main-color);   
     color: white;
     display: grid;
     justify-self:center;
@@ -74,11 +72,11 @@ body{
 }
 
 #player1Status{
-    border: 5px double var(--color-one);
+    border: 5px ridge var(--color-one);
 }
 
 #player2Status{
-    border: 5px double var(--color-two);
+    border: 5px ridge  var(--color-two);
 }
 
 .playerName{
