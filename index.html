@@ -34,6 +34,22 @@
         <div id="7" class="gameSquare"></div>
         <div id="8" class="gameSquare"></div>
     </div>
+
+    <!-- The Modal Popup getting player names -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tic Tac Toe</h2>
+            <form action="#" method="post" id="myForm">
+                <div id="formFields">
+                    <label for="player1">Player 1 Name:</label>
+                    <input type="text" id="player1" name="player1" required>
+                    <label for="player2">Player 2 Name:</label>
+                    <input type="text" id="player2" name="player2" required>
+                </div>   
+            <button type="submit" id="submitBtn" >Add</button></form>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

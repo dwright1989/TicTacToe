@@ -1,5 +1,5 @@
 const TicTacToe = (() => {
-         
+
         const gameBoard = (function() {
             'use strict';
             let board = ["", "", "", "", "","","","",""]; 
@@ -78,19 +78,57 @@ const TicTacToe = (() => {
 
         const gameController = (() => {
                 // Create two player objects (only two players for Tic Tac Toe)
-                //################ MANUALLY ADDED NAMES - TO BE REMOVED ################
-                let player1 = playerFactory("Aaron", "X");
-                let player2 = playerFactory("Bob", "O");
+                let player1 = playerFactory("Player 1", "X");
+                let player2 = playerFactory("Player 2", "O");
+
+                /*
+                Modal CODE
+                */
+                let modal = document.getElementById("myModal");
+                let span = document.getElementsByClassName("close")[0];
+                const formElem = document.querySelector('form');
+                window.addEventListener('load', (event) => {
+                    modal.style.display = "block";
+                });
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                    modal.style.display = "none";
+                    }
+                }
+
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                formElem.addEventListener('submit', (e) => {
+                    // on form submission, prevent default
+                    e.preventDefault();
+                    // construct a FormData object, which fires the formdata event
+                    const formData = new FormData(formElem);
+                    let firstPlayerName = formData.get('player1');
+                    let secondPlayerName = formData.get('player2');
+                    if(firstPlayerName!="" && firstPlayerName!=null){
+                        player1.setname(firstPlayerName);
+                    }
+                    if(secondPlayerName!="" && secondPlayerName!=null){
+                        player2.setname(secondPlayerName);
+                    }
+                    modal.style.display = "none";
+                    updateNames();
+                });
 
                 player1.setTurn(true);
                 gameBoard.setPlayerTurn(player1.getcharacterSymbol());
 
                 // Add names to the board
-                let player1Div = document.getElementById("player1Name");
-                player1Div.innerHTML = player1.getname();
-                let player2Div = document.getElementById("player2Name");
-                player2Div.innerHTML = player2.getname();
-
+                function updateNames(){
+                    let player1Div = document.getElementById("player1Name");
+                    player1Div.innerHTML = player1.getname();
+                    let player2Div = document.getElementById("player2Name");
+                    player2Div.innerHTML = player2.getname();
+                }
+                
                 // Add event listeners to each square
                 for(let i=0; i<9; i++){
                     let gameSquare = document.getElementById(i);

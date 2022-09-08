@@ -38,8 +38,8 @@ body{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: 1fr 2fr;
-    background-color: var(--secondary-color);
-    color: var(--main-color);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
     margin-bottom: 6rem;
     height: 12rem;
     padding-bottom: 3rem;
@@ -108,3 +108,66 @@ body{
 .naughts{
     color: var(--color-two);
 }
+
+h2{
+    text-align: center;
+}
+
+
+/* ------Modal ------ */
+
+/* The Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: var(--main-color);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 5px groove var(--secondary-color);
+    width: 25rem;
+    box-shadow: 5px 5px 5px var(--main-color); 
+  }
+  
+  /* The Close Button */
+  .close {
+    color: var(--secondary-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: var(--color-one);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #formFields{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 2rem;
+    font-size: 1.5rem;
+    gap: 2rem;
+  }
+
+  #submitBtn{
+      display: flex;
+      margin: auto;
+      background-color: var(--secondary-color);
+      border: 1px solid var(--main-color);
+      font-size: 1.5rem;
+      width: 6rem;
+      justify-content: center;
+  }
