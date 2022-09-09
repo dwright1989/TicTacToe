@@ -114,7 +114,7 @@ h2{
 }
 
 
-/* ------Modal ------ */
+/* ------------ GET NAME MODAL --------------- */
 
 /* The Modal (background) */
 .modal {
@@ -170,4 +170,14 @@ h2{
       font-size: 1.5rem;
       width: 6rem;
       justify-content: center;
+  }
+
+  /* ------------ WINNER MODAL --------------- */
+#winnerModContent {
+    background-color: var(--main-color);
+    font-size: 3rem;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 25rem;
+    border: 5px groove var(--color-three);
   }

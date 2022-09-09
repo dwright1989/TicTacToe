@@ -183,18 +183,25 @@ const TicTacToe = (() => {
                                 if(board[winningCombos[i][0]]==player1.getcharacterSymbol() &&
                                 board[winningCombos[i][1]]==player1.getcharacterSymbol() &&
                                 board[winningCombos[i][2]]==player1.getcharacterSymbol()){
-                                    console.log("Player 1 won");
+                                    winnerModal("The winner is: " + player1.getname());
                                 }
                                 if(board[winningCombos[i][0]]==player2.getcharacterSymbol() &&
                                 board[winningCombos[i][1]]==player2.getcharacterSymbol() &&
                                 board[winningCombos[i][2]]==player2.getcharacterSymbol()){
-                                        console.log("Player 2 won");
+                                    winnerModal("The winner is: " + player2.getname());
                                 }// check for draw (number of goes aka count reaches max and no winner then it's a draw)
                                 else if(count==9){
-                                    console.log("it's a draw");
+                                    winnerModal("It's a draw!");
                                 }
                         }
                     }
+                }
+
+                function winnerModal(winner){
+                    let winnerModal = document.getElementById("winnerMod");
+                    winnerModal.style.display = "block";
+                    let winnerDIV = document.getElementById("winnerDIV");
+                    winnerDIV.innerHTML = winner;  
                 }
 
             
