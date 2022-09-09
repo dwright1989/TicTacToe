@@ -96,6 +96,7 @@ const TicTacToe = (() => {
                 let modal = document.getElementById("myModal");
                 let span = document.getElementsByClassName("close")[0];
                 let restartButton = document.getElementById("restart");
+                let resetButton = document.getElementById("resetButton");
                 const formElem = document.querySelector('form');
                 window.addEventListener('load', (event) => {
                     modal.style.display = "block";
@@ -130,6 +131,9 @@ const TicTacToe = (() => {
 
                 // Add event listner for restart button after game won
                 restartButton.addEventListener("click", function(){
+                    resetBoard();
+                }); // same for reset button at bottom
+                resetButton.addEventListener("click", function(){
                     resetBoard();
                 });
 
