@@ -196,18 +196,25 @@ const TicTacToe = (() => {
                     if(count>=3 && count <9){
                         for(let i=0; i<winningCombos.length; i++){
                             let board = gameBoard.getBoard();
-                            console.log("board");
+                            console.log("board: " + board);
+                            console.log("count: "+ count);
+                            console.log("i: " + i);
+                            console.log("checking combination: " + "["+winningCombos[i][0]+"][" + winningCombos[i][1] + "]["  
+                            + winningCombos[i][2] +"]")
                                 if(board[winningCombos[i][0]]==player1.getcharacterSymbol() &&
                                 board[winningCombos[i][1]]==player1.getcharacterSymbol() &&
                                 board[winningCombos[i][2]]==player1.getcharacterSymbol()){
                                     winnerModal("The winner is: " + player1.getname());
+                                    break;
                                 }
                                 if(board[winningCombos[i][0]]==player2.getcharacterSymbol() &&
                                 board[winningCombos[i][1]]==player2.getcharacterSymbol() &&
                                 board[winningCombos[i][2]]==player2.getcharacterSymbol()){
                                     winnerModal("The winner is: " + player2.getname());
+                                    break;
                                 }// check for draw (number of goes aka count reaches max and no winner then it's a draw)
-                                else if(count==8 && i==(winningCombos.length+1)){
+                                
+                                else if(count==8 && i==(winningCombos.length-1)){
                                     winnerModal("It's a draw!");
                                 }
                         }
