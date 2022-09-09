@@ -207,7 +207,7 @@ const TicTacToe = (() => {
                                 board[winningCombos[i][2]]==player2.getcharacterSymbol()){
                                     winnerModal("The winner is: " + player2.getname());
                                 }// check for draw (number of goes aka count reaches max and no winner then it's a draw)
-                                else if(count==8){
+                                else if(count==8 && i==(winningCombos.length+1)){
                                     winnerModal("It's a draw!");
                                 }
                         }
