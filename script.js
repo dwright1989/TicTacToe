@@ -11,11 +11,17 @@ const TicTacToe = (() => {
                     gameSquare.innerHTML = board[i];
                     if(board[i]=="X"){
                         gameSquare.classList.add("crosses");
+                        gameSquare.classList.remove("naughts");
                     }
                     if(board[i]=="O"){
                         gameSquare.classList.add("naughts");
+                        gameSquare.classList.remove("crosses");
                     }
                 }                
+            }
+            function resetBoard(){
+                board = ["", "", "", "", "","","","",""]; 
+                updateBoard();
             }
 
             function addToBoard(i){
@@ -39,7 +45,8 @@ const TicTacToe = (() => {
                 addToBoard: addToBoard,
                 getPlayerTurn: getPlayerTurn,
                 setPlayerTurn: setPlayerTurn,
-                getBoard: getBoard
+                getBoard: getBoard,
+                resetBoard: resetBoard
             };
             
         })();
@@ -122,7 +129,9 @@ const TicTacToe = (() => {
                 });
 
                 // Add event listner for restart button after game won
-
+                restartButton.addEventListener("click", function(){
+                    resetBoard();
+                });
 
                 player1.setTurn(true);
                 gameBoard.setPlayerTurn(player1.getcharacterSymbol());
@@ -206,6 +215,13 @@ const TicTacToe = (() => {
                     winnerModal.style.display = "block";
                     let winnerDIV = document.getElementById("winnerDIV");
                     winnerDIV.innerHTML = winner;  
+                }
+
+                function resetBoard(){
+                    count = 0;
+                    gameBoard.resetBoard();
+                    let winnerModal = document.getElementById("winnerMod");
+                    winnerModal.style.display = "none";
                 }
 
             
