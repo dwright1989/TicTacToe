@@ -15,7 +15,7 @@ const TicTacToe = (() => {
                     if(board[i]=="O"){
                         gameSquare.classList.add("naughts");
                     }
-                }
+                }                
             }
 
             function addToBoard(i){
@@ -60,7 +60,7 @@ const TicTacToe = (() => {
                     playerName = name;
                 },
                 getcharacterSymbol(){
-                    return XorO;
+                    return characterSymbol;
                 },
                 setcharacterSymbol(XorO){
                     characterSymbol = XorO;
@@ -80,6 +80,8 @@ const TicTacToe = (() => {
                 // Create two player objects (only two players for Tic Tac Toe)
                 let player1 = playerFactory("Player 1", "X");
                 let player2 = playerFactory("Player 2", "O");
+                const winningCombos = [[0,1,2],[3,4,5],[6,7,8],[0,4,8],[2,4,6],[0,3,6],[2,5,8]];
+                let count = 0;
 
                 /*
                 Modal CODE
@@ -137,6 +139,8 @@ const TicTacToe = (() => {
                         let theBoard = gameBoard.getBoard();
                         if(theBoard[i]=="" || theBoard[i]==null){
                             gameBoard.addToBoard(i);
+                            checkWin();
+                            count++;
                             changeTurn();
                         }
                     });
@@ -169,6 +173,28 @@ const TicTacToe = (() => {
                     
 
                     
+                }
+                function checkWin(){
+                    // Check if anyone has won
+                    if(count>=3 && count <=9){
+                        for(let i=0; i<winningCombos.length; i++){
+                            let board = gameBoard.getBoard();
+                            console.log("board");
+                                if(board[winningCombos[i][0]]==player1.getcharacterSymbol() &&
+                                board[winningCombos[i][1]]==player1.getcharacterSymbol() &&
+                                board[winningCombos[i][2]]==player1.getcharacterSymbol()){
+                                    console.log("Player 1 won");
+                                }
+                                if(board[winningCombos[i][0]]==player2.getcharacterSymbol() &&
+                                board[winningCombos[i][1]]==player2.getcharacterSymbol() &&
+                                board[winningCombos[i][2]]==player2.getcharacterSymbol()){
+                                        console.log("Player 2 won");
+                                }// check for draw (number of goes aka count reaches max and no winner then it's a draw)
+                                else if(count==9){
+                                    console.log("it's a draw");
+                                }
+                        }
+                    }
                 }
 
             
