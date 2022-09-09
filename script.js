@@ -84,10 +84,11 @@ const TicTacToe = (() => {
                 let count = 0;
 
                 /*
-                Modal CODE
+                Modal CODE (to enter names at beginning and show winner at end)
                 */
                 let modal = document.getElementById("myModal");
                 let span = document.getElementsByClassName("close")[0];
+                let restartButton = document.getElementById("restart");
                 const formElem = document.querySelector('form');
                 window.addEventListener('load', (event) => {
                     modal.style.display = "block";
@@ -119,6 +120,9 @@ const TicTacToe = (() => {
                     modal.style.display = "none";
                     updateNames();
                 });
+
+                // Add event listner for restart button after game won
+
 
                 player1.setTurn(true);
                 gameBoard.setPlayerTurn(player1.getcharacterSymbol());
@@ -176,7 +180,7 @@ const TicTacToe = (() => {
                 }
                 function checkWin(){
                     // Check if anyone has won
-                    if(count>=3 && count <=9){
+                    if(count>=3 && count <9){
                         for(let i=0; i<winningCombos.length; i++){
                             let board = gameBoard.getBoard();
                             console.log("board");
@@ -190,7 +194,7 @@ const TicTacToe = (() => {
                                 board[winningCombos[i][2]]==player2.getcharacterSymbol()){
                                     winnerModal("The winner is: " + player2.getname());
                                 }// check for draw (number of goes aka count reaches max and no winner then it's a draw)
-                                else if(count==9){
+                                else if(count==8){
                                     winnerModal("It's a draw!");
                                 }
                         }
