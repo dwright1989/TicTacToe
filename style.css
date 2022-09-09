@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 :root{
     --main-color: black;
     --secondary-color: white;
@@ -6,7 +7,9 @@
     --color-three: #FCF340;
     --color-four: #0310EA;
 }
+
 body{
+    font-family: 'Gloria Hallelujah', cursive;
     background-color: var(--main-color);
     color: var(--secondary-color);
     margin: 0;
@@ -65,10 +68,11 @@ body{
     display: grid;
     justify-self:center;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
     padding: 1rem 2rem 1rem 2rem;
+    width: 8rem;
 }
 
 #player1Status{
@@ -99,6 +103,7 @@ body{
 
 .playerTurn{
     color: var(--color-three);
+    font-size: 2rem;
 }
 
 .crosses{
@@ -174,6 +179,11 @@ button{
     padding: 2rem;
     font-size: 1.5rem;
     gap: 2rem;
+  }
+
+  .playerText{
+    height: 2rem;
+    align-self: center;
   }
 
   #submitBtn{
